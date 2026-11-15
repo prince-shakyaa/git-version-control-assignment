@@ -1,0 +1,157 @@
+=====================================================================
+            GIT COMMANDS USED - GIT & GITHUB WORKFLOW
+  Name: Prince Shakya          Roll No: 24BCS10084
+  Repo: https://github.com/prince-shakyaa/git-version-control-assignment
+=====================================================================
+
+---------------------------------------------------------------------
+STEP 1 - LOCAL REPOSITORY SETUP
+---------------------------------------------------------------------
+1. mkdir git-version-control-assignment && cd git-version-control-assignment
+   Makes the project folder and enters it.
+
+2. ls
+   Lists files in the folder (index.html and about.html were created).
+
+3. git init -b main
+   Turns the folder into a Git repository (creates the hidden .git
+   folder) with "main" as the default branch.
+
+4. git config user.name "Prince Shakya"
+   Sets my name as the author for commits in this repository.
+
+5. git config user.email prince-shakyaa@users.noreply.github.com
+   Sets my email as the author email for commits in this repository.
+
+6. git status
+   Shows which files are untracked, modified or staged.
+
+---------------------------------------------------------------------
+STEP 2 - GIT WORKFLOW (COMMIT, BRANCH, MERGE)
+---------------------------------------------------------------------
+7. git add .
+   Stages all files in the current folder for the next commit.
+
+8. git commit -m "Initial commit: add home and about pages"
+   Saves the first snapshot of the project in the repository history.
+
+9. git status --short
+   Shows a compact status; " M index.html" means it was modified.
+
+10. git diff
+    Shows exactly which lines changed in index.html since the last commit.
+
+11. git add index.html
+    Stages only the modified index.html file.
+
+12. git commit -m "Add skills section to index.html"
+    Creates the second commit with the index.html change.
+
+13. git branch feature
+    Creates a new branch called "feature" from the current commit.
+
+14. git checkout feature
+    Switches to the feature branch so new work goes there.
+
+15. git branch
+    Lists all branches; the * shows the branch currently in use.
+
+16. git add about.html
+    Stages the edited about.html on the feature branch.
+
+17. git commit -m "Add education section to about page (feature branch)"
+    Commits the change only on the feature branch.
+
+18. git log --oneline --graph --all
+    Shows all branches as a graph; feature is one commit ahead of main.
+
+19. git checkout main
+    Switches back to the main branch.
+
+20. git merge --no-ff feature -m "Merge feature branch into main"
+    Merges feature into main; --no-ff always creates a merge commit so
+    the branch and merge are visible in history.
+
+21. git log --oneline --graph --all --decorate
+    Displays the complete commit history graph with branch labels.
+
+22. git log
+    Displays full history: commit IDs, author, date and messages.
+
+---------------------------------------------------------------------
+STEP 3 - .gitignore
+---------------------------------------------------------------------
+23. cat .gitignore
+    Prints the .gitignore rules: "*.log" and "temp/".
+
+24. ls -a
+    Shows all files including app.log and temp/ that exist on disk.
+
+25. git status
+    Shows that app.log and temp/ are NOT listed (they are ignored);
+    only .gitignore appears as untracked.
+
+26. git add .gitignore
+    Stages the .gitignore file.
+
+27. git commit -m "Add .gitignore for .log files and temp folder"
+    Commits the .gitignore file.
+
+28. git check-ignore -v app.log temp/cache.txt
+    Confirms each file is ignored and shows the matching rule/line.
+
+---------------------------------------------------------------------
+STEP 4 - UNDO OPERATION
+---------------------------------------------------------------------
+29. git add notes.txt
+    Stages a new file used to demonstrate undoing a commit.
+
+30. git commit -m "Add notes.txt (to be undone)"
+    Makes the extra commit that will be undone.
+
+31. git log --oneline -3
+    Shows the last three commits (the extra commit is on top).
+
+32. git revert --no-edit HEAD
+    Undoes the last commit by creating a new commit that reverses it
+    (notes.txt is deleted). History is kept, so it is safe to push.
+
+33. git log --oneline -4
+    Shows both the undone commit and the new "Revert" commit.
+
+    Note: "git reset --hard HEAD~1" would also undo the last commit but
+    erases it from history; "git reset --soft HEAD~1" removes the
+    commit but keeps the changes staged.
+
+---------------------------------------------------------------------
+STEP 5 - GITHUB INTEGRATION
+---------------------------------------------------------------------
+34. gh repo create git-version-control-assignment --public
+    Creates a new empty PUBLIC repository on GitHub (GitHub CLI; same
+    as creating it from the "New repository" page on github.com).
+
+35. git remote add origin https://github.com/prince-shakyaa/git-version-control-assignment.git
+    Links the local repository to the GitHub repository as "origin".
+
+36. git remote -v
+    Verifies the remote URL used for fetch and push.
+
+37. git push -u origin main
+    Uploads the main branch with all commits to GitHub and sets it to
+    track origin/main.
+
+38. git push origin feature
+    Uploads the feature branch to GitHub as well.
+
+39. git log --oneline --graph --all --decorate
+    Confirms local and remote branches (origin/main, origin/feature)
+    point to the same commits after pushing.
+
+---------------------------------------------------------------------
+STEP 6 - DOCUMENTATION FILE
+---------------------------------------------------------------------
+40. git add git_commands.txt
+    Stages this documentation file.
+
+41. git commit -m "Add git_commands.txt with all commands and explanations"
+    Commits this file so it is included in the GitHub repository.
