@@ -1,6 +1,6 @@
 =====================================================================
             GIT COMMANDS USED - GIT & GITHUB WORKFLOW
-  Name: Prince Shakya          Roll No: 24BCS10084
+  Name: Prince Shakya          Roll No: 2024EB02431
   Repo: https://github.com/prince-shakyaa/git-version-control-assignment
 =====================================================================
 
@@ -155,3 +155,15 @@ STEP 6 - DOCUMENTATION FILE
 
 41. git commit -m "Add git_commands.txt with all commands and explanations"
     Commits this file so it is included in the GitHub repository.
+
+42. git add git_commands.txt
+    Stages the corrected documentation file (roll number fix).
+
+43. git commit -m "Fix roll number in git_commands.txt"
+    Records the correction as a new commit.
+
+44. git push
+    Pushes the new commit to origin/main (upstream already set by -u).
+
+45. git log --oneline --graph --all --decorate
+    Shows the final history, now matching GitHub.
